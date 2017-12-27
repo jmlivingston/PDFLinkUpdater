@@ -1,0 +1,7 @@
+/packages/
+/PDFLinkUpdater/obj/
+/PDFLinkUpdater/bin/Debug/
+/**/Aspose.pdf.lic
+/**/logs.txt
+/.vs/
+/PDFLinkUpdater/Files/output/
