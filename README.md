@@ -2,7 +2,7 @@
 
 Author: John Livingston
 
-## Installation
+## Start
 
 - Run PDFLinkUpdater.exe (PDFLinkUpdater/bin/Release)
 - Change the Source Directory and Copy Directory. You can keep these the same, but a different directory would be recommended since this tool doesn't back anything up.
@@ -23,7 +23,7 @@ Author: John Livingston
 
 ---
 
-## Aspose Alternative
+## Aspose Alternative (Not Recommended)
 
 > Note: I have tried several versions of Aspose (including the latest 17.12.0) and it throws exceptions with no detail with large 20MB+ files. Unfortunately these exceptions are swallowed and there are no solutions on any of the forums.
 
@@ -34,6 +34,7 @@ Author: John Livingston
 ### Installation
 
 - Copy the Aspose.Pdf license to the same directory as PDFLinkUpdater.exe (bin/Release) and name it as "Aspose.Pdf.lic".
+- Follow the Start instructions above, but select Aspose when prompted.
 
 ## Errors
 
