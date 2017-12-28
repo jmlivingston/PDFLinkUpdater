@@ -45,6 +45,9 @@
             this.ApiSelectionIText = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.APISelectionAspose = new System.Windows.Forms.RadioButton();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.Cancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SearchReplaceGrid)).BeginInit();
             this.StatusStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -63,13 +66,13 @@
             // 
             this.SourceDirectory.Location = new System.Drawing.Point(12, 35);
             this.SourceDirectory.Name = "SourceDirectory";
-            this.SourceDirectory.Size = new System.Drawing.Size(347, 20);
+            this.SourceDirectory.Size = new System.Drawing.Size(740, 20);
             this.SourceDirectory.TabIndex = 1;
             this.SourceDirectory.TextChanged += new System.EventHandler(this.SourceDirectory_TextChanged);
             // 
             // OpenSourceDirectory
             // 
-            this.OpenSourceDirectory.Location = new System.Drawing.Point(365, 35);
+            this.OpenSourceDirectory.Location = new System.Drawing.Point(758, 35);
             this.OpenSourceDirectory.Name = "OpenSourceDirectory";
             this.OpenSourceDirectory.Size = new System.Drawing.Size(31, 23);
             this.OpenSourceDirectory.TabIndex = 2;
@@ -79,7 +82,7 @@
             // 
             // OpenCopyDirectory
             // 
-            this.OpenCopyDirectory.Location = new System.Drawing.Point(365, 95);
+            this.OpenCopyDirectory.Location = new System.Drawing.Point(758, 95);
             this.OpenCopyDirectory.Name = "OpenCopyDirectory";
             this.OpenCopyDirectory.Size = new System.Drawing.Size(31, 23);
             this.OpenCopyDirectory.TabIndex = 5;
@@ -91,7 +94,7 @@
             // 
             this.CopyDirectory.Location = new System.Drawing.Point(12, 95);
             this.CopyDirectory.Name = "CopyDirectory";
-            this.CopyDirectory.Size = new System.Drawing.Size(347, 20);
+            this.CopyDirectory.Size = new System.Drawing.Size(740, 20);
             this.CopyDirectory.TabIndex = 4;
             this.CopyDirectory.TextChanged += new System.EventHandler(this.CopyDirectory_TextChanged);
             // 
@@ -113,7 +116,7 @@
             this.Replace});
             this.SearchReplaceGrid.Location = new System.Drawing.Point(12, 154);
             this.SearchReplaceGrid.Name = "SearchReplaceGrid";
-            this.SearchReplaceGrid.Size = new System.Drawing.Size(384, 168);
+            this.SearchReplaceGrid.Size = new System.Drawing.Size(787, 168);
             this.SearchReplaceGrid.TabIndex = 6;
             this.SearchReplaceGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.SearchReplaceGrid_CellValueChanged);
             this.SearchReplaceGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.SearchReplaceGrid_RowsAdded);
@@ -132,7 +135,7 @@
             // Start
             // 
             this.Start.Enabled = false;
-            this.Start.Location = new System.Drawing.Point(321, 467);
+            this.Start.Location = new System.Drawing.Point(643, 453);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(75, 23);
             this.Start.TabIndex = 7;
@@ -145,10 +148,10 @@
             this.StatusStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusStripLabel});
-            this.StatusStrip.Location = new System.Drawing.Point(0, 510);
+            this.StatusStrip.Location = new System.Drawing.Point(0, 492);
             this.StatusStrip.Name = "StatusStrip";
             this.StatusStrip.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.StatusStrip.Size = new System.Drawing.Size(411, 22);
+            this.StatusStrip.Size = new System.Drawing.Size(811, 22);
             this.StatusStrip.TabIndex = 8;
             this.StatusStrip.Text = "statusStrip1";
             // 
@@ -186,7 +189,7 @@
             this.groupBox1.Controls.Add(this.ApiSelectionIText);
             this.groupBox1.Location = new System.Drawing.Point(15, 338);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(381, 100);
+            this.groupBox1.Size = new System.Drawing.Size(784, 100);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "API Selector";
@@ -200,12 +203,40 @@
             this.APISelectionAspose.TabIndex = 11;
             this.APISelectionAspose.Text = "Aspose 17.12 (Unstable and Requires License)";
             this.APISelectionAspose.UseVisualStyleBackColor = true;
+            this.APISelectionAspose.CheckedChanged += new System.EventHandler(this.APISelectionAspose_CheckedChanged);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(0, 482);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(811, 10);
+            this.progressBar.TabIndex = 12;
+            this.progressBar.Visible = false;
+            // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            // 
+            // Cancel
+            // 
+            this.Cancel.Enabled = false;
+            this.Cancel.Location = new System.Drawing.Point(724, 453);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(75, 23);
+            this.Cancel.TabIndex = 13;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 532);
+            this.ClientSize = new System.Drawing.Size(811, 514);
+            this.Controls.Add(this.Cancel);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.StatusStrip);
@@ -250,6 +281,9 @@
         private System.Windows.Forms.RadioButton ApiSelectionIText;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton APISelectionAspose;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private System.Windows.Forms.Button Cancel;
     }
 }
 

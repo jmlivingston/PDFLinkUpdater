@@ -90,6 +90,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Progress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -104,8 +105,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="bin\Debug\Aspose.Pdf.lic" />
-    <None Include="bin\Release\Aspose.Pdf.lic" />
     <None Include="Files\input\red-yellow-blue - Copy %282%29.pdf" />
     <None Include="Files\input\red-yellow-blue - Copy %283%29.pdf" />
     <None Include="Files\input\red-yellow-blue - Copy.pdf" />
@@ -131,6 +130,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

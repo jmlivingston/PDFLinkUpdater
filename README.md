@@ -4,7 +4,7 @@ Author: John Livingston
 
 ## Start
 
-- Run PDFLinkUpdater.exe (PDFLinkUpdater/bin/Release)
+- Install using PDFLinkUpdater/Setup/Release/PDFLinkUpdaterSetup.msi (Alternatively: Download repo, unzip, then run PDFLinkUpdater.exe PDFLinkUpdater/bin/Release)
 - Change the Source Directory and Copy Directory. You can keep these the same, but a different directory would be recommended since this tool doesn't back anything up.
 - Update grid with values you will be searching and replacing with.
 - Select an API. iText5 (AGPL License) is recommended as Aspose cannot efficiently save large files.
@@ -12,7 +12,7 @@ Author: John Livingston
 
 ## Errors
 
-1. If one of the PDF files is open, so you are unable to save. If this happens, you will get a message at the end and a logs.txt file will be generated at the same level of the executable (PDFLinkUpdater/bin/Release).
+1. If one of the PDF files is open, so you are unable to save. If this happens, you will get a message at the end and a logs.txt file will be generated at the source directory specified.
 
 
 ## Troubleshooting
